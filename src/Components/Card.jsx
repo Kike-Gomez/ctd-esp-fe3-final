@@ -1,20 +1,37 @@
-import React from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useCharStates } from "../Context/Context";
 
+const Card = ({ item }) => {
+  const { theme, favs, dispatch } = useCharStates();
+  const findFav = favs.find(()=> favs.id === item.id)
+  const [isFavorite, setIsFavorite] = useState(false);
 
-const Card = ({ name, username, id }) => {
+  const addFav = () => {
+    setIsFavorite(!isFavorite)
+    if(findFav){
+      dispatch({ type: "DELETE_FAV", payload: item })
+    } else{
+      dispatch({ type: "ADD_FAV", payload: item })
+    }
 
-  const addFav = ()=>{
-    // Aqui iria la logica para agregar la Card en el localStorage
-  }
+  };
 
   return (
-    <div className="card">
-        {/* En cada card deberan mostrar en name - username y el id */}
-
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
+    <div className={`card ${theme}er`}>
+      <Link to={"/detail/" + item.id}>
+        <img src="../../public/images/doctor.jpg" alt="" />
+        <div className="detailData">
+          <h4>{item.name}</h4>
+          <h4>{item.username}</h4>
+        </div>
+      </Link>
+      <button
+        onClick={addFav}
+        className={`${theme}er ${isFavorite ? "favorited" : ""}`}
+      >
+        <i className={`fa-solid fa-heart ${isFavorite ? "favorited" : ""}`}></i>
+      </button>
     </div>
   );
 };

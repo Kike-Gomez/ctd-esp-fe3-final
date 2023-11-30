@@ -1,12 +1,23 @@
-import React from 'react'
+import React from "react";
+import { useCharStates } from "../Context/Context";
 
 const Footer = () => {
-  return (
-    <footer>
-        <p>Powered by</p>
-        <img src="./img/DH.png" alt='DH-logo' />
-    </footer>
-  )
-}
+  const { theme } = useCharStates();
 
-export default Footer
+  return (
+    <footer className={`${theme}er`}>
+      <div className="logo">
+        <p>Powered by</p>
+        <img src="../../public/images/DH.png" alt="DH-logo" />
+      </div>
+      <div className="social">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-square-instagram"></i>
+        <i class="fa-brands fa-whatsapp"></i>
+        <i class="fa-brands fa-tiktok"></i>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
