@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className={`${theme}er`}>
       <div className="logo">
         <p>Powered by</p>
-        <img src="../../public/images/DH.png" alt="DH-logo" />
+        <img src="./public/images/DH.png" alt="DH-logo" />
       </div>
       <div className="social">
         <i class="fa-brands fa-facebook"></i>
