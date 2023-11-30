@@ -20,7 +20,7 @@ const Card = ({ item }) => {
   return (
     <div className={`card ${theme}er`}>
       <Link to={"/detail/" + item.id}>
-        <img src="./public/images/doctor.jpg" alt="" />
+        <img src="/public/images/doctor.jpg" alt="" />
         <div className="detailData">
           <h4>{item.name}</h4>
           <h4>{item.username}</h4>
