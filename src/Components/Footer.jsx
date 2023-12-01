@@ -1,4 +1,5 @@
 import React from "react";
+import { dhLogo } from "../Images/DH.png";
 import { useCharStates } from "../Context/Context";
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
     <footer className={`${theme}er`}>
       <div className="logo">
         <p>Powered by</p>
-        <img src="/public/images/DH.png" alt="DH-logo" />
+        <img src={ dhLogo } alt="DH-logo" />
       </div>
       <div className="social">
         <i class="fa-brands fa-facebook"></i>
