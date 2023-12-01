@@ -1,4 +1,3 @@
-import React from "react";
 import { useCharStates } from "../Context/Context";
 import Card from "../Components/Card";
 

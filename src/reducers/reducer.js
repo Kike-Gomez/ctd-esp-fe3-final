@@ -9,6 +9,7 @@ export const reducer = (state, action) => {
         case 'GET_CHARACTER':
             return {...state, character: action.payload, list: [...state.list, action.payload]}
         case 'DELETE_FAV':
+            // eslint-disable-next-line no-case-declarations
             const updatedFavs = state.favs.filter((fav) => fav.id !== action.payload.id);
             return { ...state, favs: updatedFavs };
         case 'CONTACT_VISIBILITY':

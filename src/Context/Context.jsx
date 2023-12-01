@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useContext, useReducer, useEffect } from "react";
 import { reducer } from "../reducers/reducer";
 import axios from 'axios'

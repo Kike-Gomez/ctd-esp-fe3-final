@@ -1,4 +1,3 @@
-import React from "react";
 import { useCharStates } from "../Context/Context";
 
 const Footer = () => {
@@ -8,7 +7,7 @@ const Footer = () => {
     <footer className={`${theme}er`}>
       <div className="logo">
         <p>Powered by</p>
-        <img src="../src/Images/DH.png" alt="DH-logo" />
+        <img src="/static/images/dh.png" alt="DH-logo" />
       </div>
       <div className="social">
         <i className="fa-brands fa-facebook"></i>

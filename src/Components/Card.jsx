@@ -1,4 +1,4 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { useCharStates } from "../Context/Context";
 
@@ -17,7 +17,7 @@ const Card = ({ item }) => {
   return (
     <div className={`card ${theme}er`}>
       <Link to={"/detail/" + item.id}>
-        <img src="./Images/doctor.jpg" alt="" />
+        <img src="/static/images/doctor.jpg" alt="" />
         <div className="card-data">
           <h4>{item.name}</h4>
           <h4>{item.username}</h4>

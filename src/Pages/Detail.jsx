@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useCharStates } from "../Context/Context";
 
 const Detail = () => {
   const { list, theme, dispatch } = useCharStates();
-  //const [character, setCharacter] = useState({}); //esto migrarlo al context
   const { id } = useParams();
   const character = list.find((char) => char.id === parseInt(id));
   const url = "https://jsonplaceholder.typicode.com/users/" + id;
@@ -16,7 +15,7 @@ const Detail = () => {
         dispatch({ type: "GET_CHARACTER", payload: res.data });
       });
     }
-  }, [id, character, dispatch]);
+  }, []);
 
   return (
     <main className={theme}>

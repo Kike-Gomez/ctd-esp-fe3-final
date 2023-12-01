@@ -1,9 +1,8 @@
-import React from "react";
 import Form from "../Components/Form";
 import { useCharStates } from "../Context/Context";
 
 const Contact = () => {
-  const { theme, showContactHeaders, dispatch } = useCharStates();
+  const { theme, showContactHeaders } = useCharStates();
 
   return (
     <main className={theme}>
