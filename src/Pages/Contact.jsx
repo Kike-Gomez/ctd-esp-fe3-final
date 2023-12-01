@@ -3,15 +3,17 @@ import Form from "../Components/Form";
 import { useCharStates } from "../Context/Context";
 
 const Contact = () => {
-  const { theme } = useCharStates();
+  const { theme, showContactHeaders, dispatch } = useCharStates();
 
   return (
     <main className={theme}>
-      <div>
-        <h2>Want to know more?</h2>
-        <p>Send us your questions and we will contact you</p>
-        <Form />
-      </div>
+      {showContactHeaders && (
+        <div className="contact">
+          <h1>Want to know more?</h1>
+          <h3>Send us your questions and we will contact you</h3>
+        </div>
+      )}
+      <Form />
     </main>
   );
 };

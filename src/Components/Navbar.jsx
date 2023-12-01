@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useCharStates } from "../Context/Context";
 
 const Navbar = () => {
@@ -15,17 +15,21 @@ const Navbar = () => {
     <header className={`${theme}er`}>
       <h1 onClick={() => navigate("/")}>DH Odonto</h1>
       <nav>
-        <Link to="/">
+        <NavLink to="/">
           <h4>Home</h4>
-        </Link>
-        <Link to="/contact">
+        </NavLink>
+        <NavLink to="/contact">
           <h4>Contact</h4>
-        </Link>
-        <Link to="/favs">
+        </NavLink>
+        <NavLink to="/favs">
           <h4>Favs</h4>
-        </Link>
+        </NavLink>
         <button onClick={toggleTheme}>
-          <i class="fa-solid fa-moon"></i>
+          {theme === "light" ? (
+            <i className="fa-solid fa-moon"></i>
+          ) : (
+            <i className="fa-solid fa-sun"></i>
+          )}
         </button>
       </nav>
     </header>

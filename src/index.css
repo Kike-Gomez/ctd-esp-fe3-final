@@ -3,8 +3,11 @@
   --gray: #3a3e42;
   --light-gray: #ece9e9;
   --very-light-gray: #fafafa;
-  --red: #ec168f;
+  --pink: #ec168f;
+  --red: #ca194b;
   --pale-pink: #fcc0e2;
+  --green: #4bb23f;
+  --orange: #d66e32;
 }
 
 * {
@@ -22,16 +25,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a{
+a {
   color: inherit;
   text-decoration: none;
   cursor: pointer;
 }
 
-button{
+a.active,
+a:hover {
+  color: var(
+    --green
+  ); /* Cambia el color cuando el enlace está activo (en la ruta actual) */
+}
+
+button {
   border: none;
   cursor: pointer;
   font-size: x-large;
+  background-color: inherit;
+  color: inherit;
 }
 
 header {
@@ -44,7 +56,9 @@ header > nav {
   display: flex;
   justify-content: space-evenly;
   width: 20rem;
+  font-size: larger;
 }
+
 main {
   display: flex;
   align-items: center;
@@ -53,9 +67,61 @@ main {
   padding: 2rem 0;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  width: 25rem;
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: 2rem;
+}
+
+form > label {
+  padding: 1rem 0;
+  font-weight: 700;
+  font-size: larger;
+}
+
+form > input {
+  padding: 0.5rem;
+  border-radius: 1rem;
+  font-size: medium;
+}
+
+form > button {
+  margin-top: 2rem;
+  border-radius: 1rem;
+  width: 10rem;
+  align-self: center;
+  border: 2px solid;
+  font-size: large;
+  padding: 0.5rem;
+}
+
+form > button:hover {
+  background-color: var(--green);
+}
+
+.error {
+  text-align: center;
+  padding: 1rem;
+  color: var(--red);
+  font-size: medium;
+}
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.fa-thumbs-up{
+  font-size: 5rem;
+  color: var(--green);
+}
 footer {
   display: flex;
   justify-content: space-evenly;
+  height: 5rem;
   padding: 1rem 0;
 }
 
@@ -96,7 +162,10 @@ footer > .social {
   border-top-left-radius: 1rem;
 }
 
-.detailData{
+.card-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: medium;
   padding: 0.5rem;
 }
@@ -111,14 +180,40 @@ footer > .social {
   margin: 0 auto;
 }
 
-.fa-heart{
-  
+.detail {
+  display: flex;
+  width: 40vw;
+  border-radius: 2rem;
+}
+
+.detail img {
+  max-width: 30%;
+}
+
+.detail-data {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.fav {
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0;
+}
+.fa-heart {
   padding: 0.5rem 0;
   color: var(--pale-pink);
 }
 
-.favorited{
-  color: var(--red);
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorited {
+  color: var(--pink);
 }
 
 .light {
@@ -139,4 +234,5 @@ footer > .social {
 .darker {
   background-color: var(--dark-gray);
   color: var(--very-light-gray);
+  border-color: var(--very-light-gray);
 }

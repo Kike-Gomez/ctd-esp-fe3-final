@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useCharStates } from "../Context/Context";
 
 const Form = () => {
+  const { theme, dispatch } = useCharStates();
   const [formValues, setFormValues] = useState({
     name: "",
     email: "",
@@ -29,8 +31,9 @@ const Form = () => {
       validateName(formValues.name) &&
       validateEmail(formValues.email)
     ) {
-      setShow(true)
-      setError(false)
+      setShow(true);
+      setError(false);
+      dispatch({ type: "CONTACT_VISIBILITY", payload: false });
       console.log(formValues);
     } else {
       setError(true);
@@ -40,7 +43,7 @@ const Form = () => {
   return (
     <div>
       {!show && (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={`${theme}er`}>
           <label>Name</label>
           <input
             type="text"
@@ -58,7 +61,13 @@ const Form = () => {
           <button>Submit</button>
         </form>
       )}
-      {show && <h1>Thanks {formValues.name}</h1>}
+      {show && (
+        <div className="success">
+          <i className="fa-regular fa-thumbs-up"></i>
+          <h2>Thanks {formValues.name}</h2>
+          <p>We will contact you soon by email.</p>
+        </div>
+      )}
       {error && (
         <div className="error">
           <h4>Please check your information again.</h4>

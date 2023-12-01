@@ -4,24 +4,21 @@ import { useCharStates } from "../Context/Context";
 
 const Card = ({ item }) => {
   const { theme, favs, dispatch } = useCharStates();
-  const findFav = favs.find(()=> favs.id === item.id)
-  const [isFavorite, setIsFavorite] = useState(false);
+  const isFavorite = favs.some((fav) => fav.id === item.id);
 
   const addFav = () => {
-    setIsFavorite(!isFavorite)
-    if(findFav){
-      dispatch({ type: "DELETE_FAV", payload: item.id })
-    } else{
-      dispatch({ type: "ADD_FAV", payload: item })
+    if (isFavorite) {
+      dispatch({ type: "DELETE_FAV", payload: item });
+    } else {
+      dispatch({ type: "ADD_FAV", payload: item });
     }
-
   };
 
   return (
     <div className={`card ${theme}er`}>
       <Link to={"/detail/" + item.id}>
-        <img src="/public/images/doctor.jpg" alt="" />
-        <div className="detailData">
+        <img src="../src/Images/doctor.jpg" alt="" />
+        <div className="card-data">
           <h4>{item.name}</h4>
           <h4>{item.username}</h4>
         </div>
