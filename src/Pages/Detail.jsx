@@ -20,7 +20,7 @@ const Detail = () => {
   return (
     <main className={theme}>
       <div className={`detail ${theme}er`}>
-        <img src="../../public/images/doctor.jpg" alt="" />
+        <img src="/static/images/doctor.jpg" alt="" />
         <div className='detail-data'>
           <h3>Name: {character.name}</h3>
           <h3>Email: {character.email}</h3>
