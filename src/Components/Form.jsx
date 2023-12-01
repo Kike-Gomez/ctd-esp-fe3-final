@@ -2,12 +2,7 @@ import { useState } from "react";
 import { useCharStates } from "../Context/Context";
 
 const Form = () => {
-  const { theme, dispatch } = useCharStates();
-  const [formValues, setFormValues] = useState({
-    name: "",
-    email: "",
-  });
-
+  const { theme, dispatch, formValues } = useCharStates();
   const [error, setError] = useState(false);
   const [show, setShow] = useState(false);
 
@@ -21,7 +16,10 @@ const Form = () => {
     return emailRegex.test(inputText);
   }
   const handleChange = (e, objProp) =>
-    setFormValues({ ...formValues, [objProp]: e.target.value.trimEnd() });
+    dispatch({
+      type: "UPDATE_FORM_VALUES",
+      payload: { [objProp]: e.target.value.trimStart()},
+    });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +32,8 @@ const Form = () => {
       setShow(true);
       setError(false);
       dispatch({ type: "CONTACT_VISIBILITY", payload: false });
-      console.log(formValues);
+      console.log("Datos recibidos por el formulario:");
+      console.log(`Name: ${formValues.name}\nEmail: ${formValues.email}`);
     } else {
       setError(true);
     }

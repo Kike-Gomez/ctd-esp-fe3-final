@@ -1,13 +1,14 @@
 :root {
   --dark-gray: #262b32;
   --gray: #3a3e42;
+  --gray-light: #969696;
   --light-gray: #ece9e9;
   --very-light-gray: #fafafa;
   --pink: #ec168f;
   --red: #ca194b;
   --pale-pink: #fcc0e2;
-  --green: #4bb23f;
-  --orange: #d66e32;
+  --green: #9ADE7B;
+  --yellow: #F4F27E;
 }
 
 * {
@@ -33,9 +34,7 @@ a {
 
 a.active,
 a:hover {
-  color: var(
-    --green
-  ); /* Cambia el color cuando el enlace está activo (en la ruta actual) */
+  color: var(--gray-light);
 }
 
 button {
@@ -114,7 +113,7 @@ form > button:hover {
   align-items: center;
   gap: 1rem;
 }
-.fa-thumbs-up{
+.fa-thumbs-up {
   font-size: 5rem;
   color: var(--green);
 }
@@ -198,7 +197,7 @@ footer > .social {
 
 .fav {
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   padding: 0;
 }
 .fa-heart {
@@ -206,6 +205,31 @@ footer > .social {
   color: var(--pale-pink);
 }
 
+.fa-arrow-left{
+  position: fixed;
+  font-size: xx-large;
+  top: 8rem;
+  left: 2rem;
+}
+
+.fa-sun{
+  color: var(--yellow);
+}
+
+.fa-trash-can{
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.trash{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: medium;
+}
+.form {
+  flex-direction: column;
+}
 .contact {
   display: flex;
   flex-direction: column;
@@ -283,7 +307,7 @@ footer > .social {
 
   .detail {
     flex-direction: column;
-    width: 90%;
+    width: 70%;
   }
 
   .detail img {

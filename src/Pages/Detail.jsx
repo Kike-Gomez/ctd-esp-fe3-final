@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useCharStates } from "../Context/Context";
+import useBackNavigation from "./Utils/navigationUtils";
 
 const Detail = () => {
   const { list, theme, dispatch } = useCharStates();
+  const { handleBack } = useBackNavigation();
   const { id } = useParams();
   const character = list.find((char) => char.id === parseInt(id));
   const url = "https://jsonplaceholder.typicode.com/users/" + id;
@@ -19,6 +21,7 @@ const Detail = () => {
 
   return (
     <main className={theme}>
+      <i onClick={handleBack} className="fa-solid fa-arrow-left"></i>
       <div className={`detail ${theme}er`}>
         <img src="/static/images/doctor.jpg" alt="" />
         <div className='detail-data'>

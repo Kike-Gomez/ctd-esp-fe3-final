@@ -1,11 +1,19 @@
+import { useEffect } from "react";
 import Form from "../Components/Form";
 import { useCharStates } from "../Context/Context";
+import useBackNavigation from "./Utils/navigationUtils";
 
 const Contact = () => {
-  const { theme, showContactHeaders } = useCharStates();
+  const { theme, showContactHeaders, dispatch } = useCharStates();
+  const { handleBack } = useBackNavigation();
+
+  useEffect(() => {
+    dispatch({ type: "CONTACT_VISIBILITY", payload: true });
+  }, [dispatch]);
 
   return (
-    <main className={theme}>
+    <main className={`form ${theme}`}>
+      <i onClick={handleBack} className="fa-solid fa-arrow-left"></i>
       {showContactHeaders && (
         <div className="contact">
           <h1>Want to know more?</h1>

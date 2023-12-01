@@ -9,12 +9,18 @@ const CharStates = createContext();
 const initialState = {
   list: [],
   favs: JSON.parse(localStorage.getItem('favs')) || [],
-  theme: "dark"
-};
+  theme: "dark",
+  formValues: {
+    name: "",
+    email: "",
+  },
+  showContactHeaders: true,
+}
+
 
 const Context = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const {list, favs, theme} = state;
+  const {list, favs, theme, formValues, showContactHeaders } = state;
   const url = "https://jsonplaceholder.typicode.com/users";
 
   useEffect(() => {
@@ -28,7 +34,7 @@ const Context = ({ children }) => {
   }, [favs]);
 
   return (
-    <CharStates.Provider value={{ list, favs, theme, dispatch }}>
+    <CharStates.Provider value={{ list, favs, theme, formValues, showContactHeaders, dispatch }}>
       {children}
     </CharStates.Provider>
   );
